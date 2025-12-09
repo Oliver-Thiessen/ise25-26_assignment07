@@ -3,6 +3,7 @@ package de.seuhd.campuscoffee.api.controller;
 import de.seuhd.campuscoffee.api.dtos.ReviewDto;
 import de.seuhd.campuscoffee.api.dtos.UserDto;
 import de.seuhd.campuscoffee.api.mapper.DtoMapper;
+import de.seuhd.campuscoffee.api.mapper.ReviewDtoMapper;
 import de.seuhd.campuscoffee.api.openapi.CrudOperation;
 import de.seuhd.campuscoffee.domain.model.objects.Review;
 import de.seuhd.campuscoffee.domain.ports.api.CrudService;
@@ -35,14 +36,16 @@ public class ReviewController extends CrudController<Review, ReviewDto, Long> {
 
     // TODO: Correctly implement the service() and mapper() methods. Note the IntelliJ warning resulting from the @NonNull annotation.
 
+    //private final ReviewService reviewService;
+    private final ReviewDtoMapper reviewDtoMapper;
+
     @Override
-    protected @NonNull CrudService<Review, Long> service() {
-        return null;
+    protected @NonNull CrudService<Review, Long> service() {return null;
     }
 
     @Override
     protected @NonNull DtoMapper<Review, ReviewDto> mapper() {
-        return null;
+        return reviewDtoMapper;
     }
 
     @Operation

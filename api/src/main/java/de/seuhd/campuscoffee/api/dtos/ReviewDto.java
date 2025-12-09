@@ -26,8 +26,8 @@ public record ReviewDto (
     @NotBlank(message = "Review cannot be empty.")
     @NonNull String review,
 
-    // ich bin überfragt
-    Boolean approved
+    @NonNull Integer approvalCount,
+    @NonNull Boolean approved
 
 
 ) implements Dto<Long> {
