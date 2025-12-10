@@ -15,7 +15,7 @@ import de.seuhd.campuscoffee.domain.ports.api.UserService;
 @Mapper(componentModel = "spring")
 @ConditionalOnMissingBean // prevent IntelliJ warning about duplicate beans
 public abstract class ReviewDtoMapper implements DtoMapper<Review, ReviewDto> {
-    
+    //TODO: x auskommentieren nachdem ReviewDto und Review implementiert sind
     @Autowired
     @SuppressWarnings("unused") // used in @Mapping expressions
     protected PosService posService;

@@ -1,35 +1,58 @@
 package de.seuhd.campuscoffee.domain.implementation;
 
+import de.seuhd.campuscoffee.domain.configuration.ApprovalConfiguration;
+import de.seuhd.campuscoffee.domain.exceptions.NotFoundException;
+import de.seuhd.campuscoffee.domain.exceptions.ValidationException;
+import de.seuhd.campuscoffee.domain.model.objects.Pos;
+import de.seuhd.campuscoffee.domain.model.objects.Review;
+import de.seuhd.campuscoffee.domain.model.objects.User;
+import de.seuhd.campuscoffee.domain.ports.data.PosDataService;
+import de.seuhd.campuscoffee.domain.ports.data.ReviewDataService;
+import de.seuhd.campuscoffee.domain.ports.data.UserDataService;
+import de.seuhd.campuscoffee.domain.tests.TestFixtures;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
+import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
+
+import java.util.List;
+import java.util.Objects;
+
+import static de.seuhd.campuscoffee.domain.tests.TestFixtures.getApprovalConfiguration;
+import static org.assertj.core.api.Assertions.assertThat;
+import static org.junit.jupiter.api.Assertions.*;
+import static org.mockito.ArgumentMatchers.any;
+import static org.mockito.Mockito.verify;
+import static org.mockito.Mockito.when;
 
 /**
  * Unit and integration tests for the operations related to reviews.
  */
 @ExtendWith(MockitoExtension.class)
 public class ReviewServiceTest {
-    // TODO: Uncomment after implementing review domain models and service.
+    // TODO: x Uncomment after implementing review domain models and service.
 
-//    private final ApprovalConfiguration approvalConfiguration = getApprovalConfiguration();
-//
-//    @Mock
-//    private ReviewDataService reviewDataService;
-//
-//    @Mock
-//    private UserDataService userDataService;
-//
-//    @Mock
-//    private PosDataService posDataService;
-//
-//    private ReviewServiceImpl reviewService;
-//
-//    @BeforeEach
-//    void beforeEach() {
-//        reviewService = new ReviewServiceImpl(
-//                reviewDataService, userDataService, posDataService, approvalConfiguration
-//        );
-//    }
-//
+    private final ApprovalConfiguration approvalConfiguration = getApprovalConfiguration();
+
+    @Mock
+    private ReviewDataService reviewDataService;
+
+    @Mock
+    private UserDataService userDataService;
+
+    @Mock
+    private PosDataService posDataService;
+
+    private ReviewServiceImpl reviewService;
+
+    @BeforeEach
+    void beforeEach() {
+        reviewService = new ReviewServiceImpl(
+                reviewDataService, userDataService, posDataService, approvalConfiguration
+        );
+    }
+
 //    @Test
 //    void approvalFailsIfUserIsAuthor() {
 //        // given
@@ -44,7 +67,7 @@ public class ReviewServiceTest {
 //        verify(userDataService).getById(review.author().id());
 //        verify(reviewDataService).getById(review.getId());
 //    }
-//
+
 //    @Test
 //    void approvalSuccessfulIfUserIsNotAuthor() {
 //        // given
@@ -69,7 +92,7 @@ public class ReviewServiceTest {
 //        assertThat(approvedReview.approvalCount()).isEqualTo(review.approvalCount() + 1);
 //        assertThat(approvedReview.approved()).isTrue();
 //    }
-//
+
 //    @Test
 //    void getApprovedByPos() {
 //        // given
@@ -93,7 +116,7 @@ public class ReviewServiceTest {
 //        verify(reviewDataService).filter(pos, true);
 //        assertThat(retrievedReviews).hasSize(reviews.size());
 //    }
-//
+
 //    @Test
 //    void createReviewPosDoesNotExistException() {
 //        // given

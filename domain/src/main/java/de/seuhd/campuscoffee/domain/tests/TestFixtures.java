@@ -4,13 +4,16 @@ import de.seuhd.campuscoffee.domain.configuration.ApprovalConfiguration;
 import de.seuhd.campuscoffee.domain.model.enums.CampusType;
 import de.seuhd.campuscoffee.domain.model.enums.PosType;
 import de.seuhd.campuscoffee.domain.model.objects.Pos;
+import de.seuhd.campuscoffee.domain.model.objects.Review;
 import de.seuhd.campuscoffee.domain.model.objects.User;
 import de.seuhd.campuscoffee.domain.ports.api.PosService;
+import de.seuhd.campuscoffee.domain.ports.api.ReviewService;
 import de.seuhd.campuscoffee.domain.ports.api.UserService;
 import org.apache.commons.lang3.SerializationUtils;
 
 import java.time.LocalDateTime;
 import java.util.List;
+import java.util.SequencedCollection;
 import java.util.stream.Collectors;
 
 /**
@@ -20,7 +23,7 @@ public class TestFixtures {
     private static final LocalDateTime DATE_TIME = LocalDateTime.of(2025, 10, 29, 12, 0, 0);
     public static final int MIN_APPROVAL_COUNT = 3;
 
-    // TODO: Uncomment review-related code once the domain model and service are implemented.
+    // TODO: x Uncomment review-related code once the domain model and service are implemented.
 
     private static final List<User> USER_LIST = List.of(
             User.builder()
@@ -157,4 +160,7 @@ public class TestFixtures {
     public static ApprovalConfiguration getApprovalConfiguration() {
         return new ApprovalConfiguration(MIN_APPROVAL_COUNT);
     }
+
+//    public static SequencedCollection<Object> getReviewFixtures() {
+//    }
 }

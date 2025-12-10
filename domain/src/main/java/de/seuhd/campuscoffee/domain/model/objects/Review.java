@@ -1,5 +1,7 @@
 package de.seuhd.campuscoffee.domain.model.objects;
 
+import de.seuhd.campuscoffee.domain.ports.api.UserService;
+import de.seuhd.campuscoffee.domain.ports.data.UserDataService;
 import lombok.Builder;
 import org.jspecify.annotations.NonNull;
 import org.jspecify.annotations.Nullable;
